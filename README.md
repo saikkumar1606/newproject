@@ -1,0 +1,2 @@
+# newproject
+jdk17
