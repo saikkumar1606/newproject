@@ -7,15 +7,15 @@
     <groupId>com.example</groupId>
     <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-hello</name>
-    <description>Spring Boot Hello World Example</description>
-    <packaging>jar</packaging>
+    <name>spring-boot-tomcat-jar</name>
+    <description>Spring Boot app with embedded Tomcat</description>
+    <packaging>jar</packaging> <!-- Important: JAR packaging -->
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.0.6</version>
-        <relativePath/>
+        <relativePath/> <!-- Lookup from central repo -->
     </parent>
 
     <properties>
@@ -23,13 +23,13 @@
     </properties>
 
     <dependencies>
-        <!-- Web dependency -->
+        <!-- Spring Boot Web (includes embedded Tomcat) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- For devtools hot reload -->
+        <!-- Optional: Devtools for hot reload (only for development) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -37,7 +37,7 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- For Testing -->
+        <!-- Optional: Testing -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -47,7 +47,7 @@
 
     <build>
         <plugins>
-            <!-- Set Java compiler -->
+            <!-- Java Compiler Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -57,7 +57,13 @@
                     <target>17</target>
                 </configuration>
             </plugin>
+
+            <!-- Spring Boot Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.0.6</version>
+            </plugin>
         </plugins>
     </build>
-
 </project>
